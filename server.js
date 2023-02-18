@@ -112,6 +112,11 @@ app.post("/create-task", (req, res) => {
 
 });
 
+app.delete("/task/:id", async (req, res) => {
+    await Task.findByIdAndDelete(req.params.id)
+    res.send("Deleted successfully")
+});
+
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
 });
