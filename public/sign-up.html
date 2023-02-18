@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+  <link href="sign-in.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+  <main class="form-signin w-100 m-auto">
+    <form action="/sign-up" method="post">
+      <i class="fa fa-user-plus fa-4x"></i>
+      <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+
+      <div class="form-floating">
+        <input type="text" name="name" class="form-control" id="floatingName" placeholder="Name">
+      </div>
+      <div class="form-floating">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email Address">
+      </div>
+      <div class="form-floating">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+    </form>
+  </main>
+
+</body>
+
+</html>
