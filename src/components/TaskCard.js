@@ -4,7 +4,6 @@ import React, {useState} from "react"
 function TaskCard(props) {
     const [isEditing, setIsEditing] = useState(false)
     const [draftName, setDraftName] = useState("")
-    // const [file, setFile] = useState()
     const [draftDescription, setDraftDescription] = useState("")
     const [draftDeadline, setDraftDeadline] = useState("")
 
@@ -20,38 +19,27 @@ function TaskCard(props) {
             })
         )
         const data = new FormData()
-        // if (file) {
-        //     data.append("photo", file)
-        // }
+
         data.append("_id", props.id)
         data.append("name", draftName)
         data.append("description", draftDescription)
         data.append("deadline", draftDeadline)
-        // const newPhoto = await Axios.post("/update-animal", data, { headers: { "Content-Type": "multipart/form-data" } })
-        // if (newPhoto.data) {
-        //     props.setAnimals(prev => {
-        //         return prev.map(function (animal) {
-        //             if (animal._id == props.id) {
-        //                 return { ...animal, photo: newPhoto.data }
-        //             }
-        //             return animal
-        //         })
-        //     })
-        // }
+        
+        const newTask = await Axios.post("/update-task", data, { headers: { 'Content-Type': 'application/json' } })
+        if (newTask.data) {
+            props.setTasks(prev => {
+                return prev.map(function (task) {
+                    if (task._id == props.id) {
+                        return { ...task }
+                    }
+                    return task
+                })
+            })
+        }
     }
 
     return (
         <div className="card">
-            {/* <div className="our-card-top">
-                {isEditing && (
-                    <div className="our-custom-input">
-                        <div className="our-custom-input-interior">
-                            <input onChange={e => setFile(e.target.files[0])} className="form-control form-control-sm" type="file" />
-                        </div>
-                    </div>
-                )}
-                <img src={props.photo ? `/uploaded-photos/${props.photo}` : "/fallback.png"} className="card-img-top" alt={`${props.species} named ${props.name}`} />
-            </div> */}
             <div className="card-body">
                 {!isEditing && (
                     <>
@@ -66,7 +54,6 @@ function TaskCard(props) {
                                         setDraftName(props.name)
                                         setDraftDescription(props.description)
                                         setDraftDeadline(props.deadline)
-                                        // setFile("")
                                     }}
                                     className="btn btn-sm btn-primary"
                                 >

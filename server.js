@@ -112,9 +112,18 @@ app.post("/create-task", (req, res) => {
 
 });
 
+app.post("/update-task", async (req, res) => {
+    await Task.findByIdAndUpdate(req.body._id, {
+        name: req.body.name,
+        description: req.body.description,
+        deadline: req.body.deadline
+    });
+    res.send("Updated successfully");
+});
+
 app.delete("/task/:id", async (req, res) => {
     await Task.findByIdAndDelete(req.params.id)
-    res.send("Deleted successfully")
+    res.send("Deleted successfully");
 });
 
 app.listen(3000, () => {
