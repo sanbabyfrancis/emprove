@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { createRoot } from "react-dom/client"
 import Axios from "axios";
+
+import HeaderBar from "./components/HeaderBar";
 import CreateNewForm from "./components/CreateNewForm";
 import TaskCard from "./components/TaskCard";
-import HeaderBar from "./components/HeaderBar";
+import ReactJkMusicPlayer from "react-jinke-music-player";
+import 'react-jinke-music-player/assets/index.css';
 
 function App() {
     const [tasks, setTasks] = useState([])
@@ -21,7 +24,7 @@ function App() {
 
     return (
         <div>
-            <HeaderBar email={users.email}/> 
+            <HeaderBar email={users.email} />
             <div className="container">
                 <div className="task-grid">
                     <CreateNewForm setTasks={setTasks} />
@@ -30,6 +33,7 @@ function App() {
                     })}
                 </div>
             </div>
+            <ReactJkMusicPlayer toggleMode={false} mode="full" />
         </div>
     );
 }
