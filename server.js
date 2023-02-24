@@ -77,6 +77,25 @@ app.post("/sign-in", (req, res) => {
     });
 });
 
+app.post("/admin-signin", (req, res) => {
+    let email = req.body.email;
+    let password = md5(req.body.password);
+
+    Admin.findOne({email: email}, (err, foundAdmin) => {
+        if (err) {
+            res.redirect("admin-signin.html");
+        }
+        if (foundAdmin) {
+            if (foundAdmin.password === password) {
+                res.send("success"); //
+            }
+            else {
+                res.redirect("admin-signin.html");
+            }
+        }
+    });
+});
+
 app.get("/dashboard", (req, res) => {
     res.render("dashboard");
 });
