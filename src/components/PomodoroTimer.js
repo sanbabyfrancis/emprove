@@ -31,7 +31,7 @@ class Button extends React.Component {
     }
 }
 
-class TimerWrapper extends React.Component {
+class PomodoroTimer extends React.Component {
     constructor(props) {
         super(props)
         this.state = { timeLeft: null, timer: null }
@@ -64,4 +64,4 @@ class TimerWrapper extends React.Component {
     }
 }
 
-export default TimerWrapper
+export default PomodoroTimer

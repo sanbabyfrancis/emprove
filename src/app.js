@@ -7,7 +7,8 @@ import CreateNewForm from "./components/CreateNewForm";
 import TaskCard from "./components/TaskCard";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import 'react-jinke-music-player/assets/index.css';
-import TimerWrapper from "./components/Timer";
+import Webcam from "react-webcam";
+import PomodoroTimer from "./components/PomodoroTimer";
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
             <div className="container">
                 <div className="task-grid">
                     <CreateNewForm setTasks={setTasks} />
-                    <TimerWrapper />
+                    <PomodoroTimer />
                     {tasks.map(function (task) {
                         return <TaskCard key={task._id} name={task.name} description={task.description} deadline={task.deadline} id={task._id} setTasks={setTasks} />
                     })}
