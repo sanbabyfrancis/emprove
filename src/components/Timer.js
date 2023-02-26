@@ -1,5 +1,11 @@
 import React from "react"
 
+function displayFormat(sec) {
+    var m = Math.floor(sec / 60)
+    var s = Math.floor(sec % 60)
+    return m + ":" + s
+}
+
 class Timer extends React.Component {
     render() {
         if (this.props.timeLeft == 0) {
@@ -7,7 +13,7 @@ class Timer extends React.Component {
         }
         if (this.props.timeLeft == null || this.props.timeLeft == 0)
             return <div />
-        return <h1>Time left: {this.props.timeLeft}</h1>
+        return <h4 style={{color: "red", marginTop: "10px"}}>Time left: {displayFormat(this.props.timeLeft)}</h4>
     }
 }
 
@@ -18,9 +24,9 @@ class Button extends React.Component {
     render() {
         return <button
             type="button"
-            className='btn btn-sm btn-primary'
+            className='btn btn-sm btn-secondary'
             onClick={() => { this.props.startTimer(this.props.time) }}>
-            {this.props.time} seconds
+            {this.props.label}
         </button>
     }
 }
@@ -34,12 +40,10 @@ class TimerWrapper extends React.Component {
     startTimer(timeLeft) {
         clearInterval(this.state.timer)
         let timer = setInterval(() => {
-            console.log('2: Inside of setInterval')
             var timeLeft = this.state.timeLeft - 1
             if (timeLeft == 0) clearInterval(timer)
             this.setState({ timeLeft: timeLeft })
         }, 1000)
-        console.log('1: After setInterval')
         return this.setState({ timeLeft: timeLeft, timer: timer })
     }
     render() {
@@ -47,13 +51,13 @@ class TimerWrapper extends React.Component {
             <div className="card">
                 <div className="card-body">
                     <h4>Pomodoro Timer</h4>
-                    <div className="btn-group" role="group" >
-                        <Button time="5" startTimer={this.startTimer} />
-                        <Button time="10" startTimer={this.startTimer} />
-                        <Button time="15" startTimer={this.startTimer} />
+                    <div className="btn-group" role="group">
+                        <Button time="1500" label="Pomodoro Session" startTimer={this.startTimer} />
+                        <Button time="300" label="Short Break" startTimer={this.startTimer} />
+                        <Button time="900" label="Long Break" startTimer={this.startTimer} />
                     </div>
                     <Timer timeLeft={this.state.timeLeft} />
-                    <audio id="end-of-time" src="flute_c_long_01.wav" preload="auto"></audio>
+                    <audio id="end-of-time" src="notification.wav" preload="auto"></audio>
                 </div>
             </div>
         )

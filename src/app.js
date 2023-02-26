@@ -44,7 +44,7 @@ function App() {
             <div className="container">
                 <div className="task-grid">
                     <CreateNewForm setTasks={setTasks} />
-                    {/* <TimerWrapper /> */}
+                    <TimerWrapper />
                     {tasks.map(function (task) {
                         return <TaskCard key={task._id} name={task.name} description={task.description} deadline={task.deadline} id={task._id} setTasks={setTasks} />
                     })}

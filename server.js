@@ -67,8 +67,6 @@ app.post("/sign-in", (req, res) => {
             if (foundUser.password === password) {
                 authID = email;
                 res.render("dashboard");
-                // res.send(foundUser.toObject());
-                // res.send("Signed in successfully!")
             }
             else {
                 res.redirect("sign-in.html");
