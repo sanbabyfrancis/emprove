@@ -7,13 +7,14 @@ import CreateNewForm from "./components/CreateNewForm";
 import TaskCard from "./components/TaskCard";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import 'react-jinke-music-player/assets/index.css';
-import Webcam from "react-webcam";
 import PomodoroTimer from "./components/PomodoroTimer";
+import FacialLandmarks from "./components/FacialLandmarks";
 
 
 function App() {
     const [tasks, setTasks] = useState([])
     const [users, setUsers] = useState([])
+    let [toggleDetection, setToggleDetection] = useState(false); //
 
     useEffect(() => {
         async function go() {
@@ -26,18 +27,22 @@ function App() {
     }, [])
 
     const audioList = [
-    {
-        musicSrc: "./music/letter-to-a-friend.mp3",
-        cover: "./music/letter-to-a-friend.jpeg",
-        name: "Letter to a Friend",
-        singer: "Robert Gromotka"
-    },
-    {
-        musicSrc: "./music/leaves-from-the-vine.mp3",
-        cover: "./music/leaves-from-the-vine.jpeg",
-        name: "Leaves from the Vine",
-        singer: "Samuel Kim"
-    }]
+        {
+            musicSrc: "./music/letter-to-a-friend.mp3",
+            cover: "./music/letter-to-a-friend.jpeg",
+            name: "Letter to a Friend",
+            singer: "Robert Gromotka"
+        },
+        {
+            musicSrc: "./music/leaves-from-the-vine.mp3",
+            cover: "./music/leaves-from-the-vine.jpeg",
+            name: "Leaves from the Vine",
+            singer: "Samuel Kim"
+        }]
+
+        const toggleFaceDetection = () => {
+            return setToggleDetection(!toggleDetection);
+          };
 
     return (
         <div>
@@ -49,9 +54,10 @@ function App() {
                     {tasks.map(function (task) {
                         return <TaskCard key={task._id} name={task.name} description={task.description} deadline={task.deadline} id={task._id} setTasks={setTasks} />
                     })}
+                    {toggleDetection ? <FacialLandmarks /> : ""}
                 </div>
             </div>
-            <ReactJkMusicPlayer audioLists={audioList} theme="dark" mode="full" autoPlay={false} toggleMode={false} responsive={false} showThemeSwitch={false} showDownload={false} showPlayMode={false} />
+            <ReactJkMusicPlayer audioLists={audioList} extendsContent={<button className="btn btn-primary" onClick={toggleFaceDetection}>Toggle Detection</button>} theme="dark" mode="full" autoPlay={false} toggleMode={false} responsive={false} showThemeSwitch={false} showDownload={false} showPlayMode={false} showReload={false} />
         </div>
     );
 }
