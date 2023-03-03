@@ -26,13 +26,13 @@ function CreateNewForm(props) {
             <div className="card-body">
 
                 <div className="mb-2">
-                    <input onChange={e => setName(e.target.value)} value={name} type="text" className="form-control form-control-sm" placeholder="Task Name" />
+                    <input onChange={e => setName(e.target.value)} value={name} type="text" className="form-control form-control-sm" placeholder="Task Name" required/>
                 </div>
                 <div className="mb-2">
-                    <input onChange={e => setDescription(e.target.value)} value={description} type="text" className="form-control form-control-sm" placeholder="Description" />
+                    <input onChange={e => setDescription(e.target.value)} value={description} type="text" className="form-control form-control-sm" placeholder="Description" required/>
                 </div>
                 <div className="mb-2">
-                    <input onChange={e => setDeadline(e.target.value)} value={deadline} type="date" className="form-control form-control-sm" placeholder="Deadline" />
+                    <input onChange={e => setDeadline(e.target.value)} value={deadline} type="date" className="form-control form-control-sm" style={{color: "#616161"}} id="userdate" required/>
                 </div>
 
                 <button className="btn btn-sm btn-success">Create New Task</button>
