@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@600&display=swap');
+
+        body {
+            font-family: Karla, sans-serif;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+        <div class="container">
+            <h1>
+                <a style="text-decoration: none;" class="text-white" href="/">EMPROVE</a>
+            </h1>
+            <p class="text-white" style="text-align: right"><%= details.email %></p>
+        </div>
+    </nav>
+    <% if(details!=null) { %>
+        <table>
+            <tr>
+                <th>Email ID</th>
+            </tr>
+            <% details.users.forEach(function(item){ %>
+                <tr>
+                    <td>
+                        <%= item %>
+                    </td>
+                </tr>
+                <% }) %>
+        </table>
+        <% } %>
+</body>
+
+</html>

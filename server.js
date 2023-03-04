@@ -66,7 +66,7 @@ app.post("/sign-in", (req, res) => {
         if (foundUser) {
             if (foundUser.password === password) {
                 authID = email;
-                res.render("dashboard");
+                res.render("user-dashboard");
             }
             else {
                 res.redirect("sign-in.html");
@@ -79,23 +79,24 @@ app.post("/admin-signin", (req, res) => {
     let email = req.body.email;
     let password = md5(req.body.password);
 
-    Admin.findOne({email: email}, (err, foundAdmin) => {
+    Admin.findOne({ email: email }, (err, foundAdmin) => {
         if (err) {
             res.redirect("admin-signin.html");
         }
         if (foundAdmin) {
             if (foundAdmin.password === password) {
-                res.send("success"); //
+                authID = email;
+                Admin.findOne({ email: authID }, (err, adminDetails) => {
+                    if (adminDetails) {
+                        res.render("admin-dashboard", { details: adminDetails })
+                    }
+                });
             }
             else {
                 res.redirect("admin-signin.html");
             }
         }
     });
-});
-
-app.get("/dashboard", (req, res) => {
-    res.render("dashboard");
 });
 
 app.get("/api/tasks", (req, res) => {
