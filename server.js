@@ -21,14 +21,6 @@ var authID; // email
 
 mongoose.connect('mongodb://127.0.0.1:27017/emprove');
 
-
-app.get('/tasks', (req, res) => {
-    Task.find((err, tasks) => {
-        if (err) return console.error(err);
-        res.send(tasks);
-    });
-});
-
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/home.html");
 });
@@ -95,6 +87,19 @@ app.post("/admin-signin", (req, res) => {
             else {
                 res.redirect("admin-signin.html");
             }
+        }
+    });
+});
+
+app.get("/admin-to-user/:id", (req, res) => {
+    let email = req.params.id;
+    User.findOne({ email: email}, (err, foundUser) => {
+        if (err) {
+            res.render("admin-dashboard");
+        }
+        if (foundUser) {
+            authID = email;
+            res.render("user-dashboard");
         }
     });
 });
