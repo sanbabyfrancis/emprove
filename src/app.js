@@ -14,7 +14,7 @@ import FacialLandmarks from "./components/FacialLandmarks";
 function App() {
     const [tasks, setTasks] = useState([])
     const [users, setUsers] = useState([])
-    let [toggleDetection, setToggleDetection] = useState(false); //
+    let [toggleDetection, setToggleDetection] = useState(false);
 
     useEffect(() => {
         async function go() {
@@ -50,14 +50,14 @@ function App() {
             <div className="container">
                 <div className="task-grid">
                     <CreateNewForm setTasks={setTasks} />
-                    <PomodoroTimer />
+                    {userComponentRender && <PomodoroTimer />}
                     {tasks.map(function (task) {
                         return <TaskCard key={task._id} name={task.name} description={task.description} deadline={task.deadline} id={task._id} setTasks={setTasks} />
                     })}
                     {toggleDetection ? <FacialLandmarks /> : ""}
                 </div>
             </div>
-            <ReactJkMusicPlayer audioLists={audioList} extendsContent={<button className="btn btn-primary" onClick={toggleFaceDetection}>Toggle Detection</button>} theme="dark" mode="full" autoPlay={false} toggleMode={false} responsive={false} showThemeSwitch={false} showDownload={false} showPlayMode={false} showReload={false} />
+            {userComponentRender && <ReactJkMusicPlayer audioLists={audioList} extendsContent={<button className="btn btn-primary" onClick={toggleFaceDetection}>Toggle Detection</button>} theme="dark" mode="full" autoPlay={false} toggleMode={false} responsive={false} showThemeSwitch={false} showDownload={false} showPlayMode={false} showReload={false} />}
         </div>
     );
 }

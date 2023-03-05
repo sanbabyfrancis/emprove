@@ -58,7 +58,7 @@ app.post("/sign-in", (req, res) => {
         if (foundUser) {
             if (foundUser.password === password) {
                 authID = email;
-                res.render("user-dashboard");
+                res.render("user-dashboard", { userComponentRender: true });
             }
             else {
                 res.redirect("sign-in.html");
@@ -80,7 +80,7 @@ app.post("/admin-signin", (req, res) => {
                 authID = email;
                 Admin.findOne({ email: authID }, (err, adminDetails) => {
                     if (adminDetails) {
-                        res.render("admin-dashboard", { details: adminDetails })
+                        res.render("admin-dashboard", { details: adminDetails });
                     }
                 });
             }
@@ -93,13 +93,13 @@ app.post("/admin-signin", (req, res) => {
 
 app.get("/admin-to-user/:id", (req, res) => {
     let email = req.params.id;
-    User.findOne({ email: email}, (err, foundUser) => {
+    User.findOne({ email: email }, (err, foundUser) => {
         if (err) {
             res.render("admin-dashboard");
         }
         if (foundUser) {
             authID = email;
-            res.render("user-dashboard");
+            res.render("user-dashboard", { userComponentRender: false });
         }
     });
 });
