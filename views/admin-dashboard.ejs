@@ -27,27 +27,34 @@
             <h1>
                 <a style="text-decoration: none;" class="text-white" href="/">EMPROVE</a>
             </h1>
-            <p class="text-white" style="text-align: right">
-                <%= details.email %>
-            </p>
+            <ul class="nav-links" style="display: flex; list-style-type: none;">
+                <li>
+                    <p class="text-white" style="text-align: right">
+                        <%= details.email %> &nbsp;&nbsp;
+                    </p>
+                </li>
+                <li><a style="text-decoration: none;" class="text-white" href="/">| Sign out</a></li>
+            </ul>
         </div>
     </nav>
     <main class="container py-5">
         <h2 class="text-center mb-4">Welcome to your Manager Dashboard</h1>
-        <% if(details!=null) { %>
-            <table align="center">
-                <% details.users.forEach(function(item){ %>
-                    <tr>
-                        <td>
-                            <i class="fa-regular fa-user-circle fa-2x">&nbsp;</i> 
-                        </td>
-                        <td>
-                            <a style="text-decoration: none;" href="/admin-to-user/<%= item %>"><%= item %></a>
-                        </td>
-                    </tr>
-                    <% }) %>
-            </table>
-            <% } %>
+            <% if(details!=null) { %>
+                <table align="center">
+                    <% details.users.forEach(function(item){ %>
+                        <tr>
+                            <td>
+                                <i class="fa-regular fa-user-circle fa-2x">&nbsp;</i>
+                            </td>
+                            <td>
+                                <a style="text-decoration: none;" href="/admin-to-user/<%= item %>">
+                                    <%= item %>
+                                </a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </table>
+                <% } %>
     </main>
 
 </body>
