@@ -9,7 +9,8 @@ function HeaderBar(props) {
                 </h1>
                 <ul className="nav-links" style={{ display: "flex", listStyleType: "none" }}>
                     <li><p className="text-white">{props.email} &nbsp;&nbsp;</p></li>
-                    <li><a style={{ textDecoration: 'none' }} className="text-white" href="#">| Productivity report &nbsp;&nbsp;</a></li>
+                    { userComponentRender && <li><a style={{ textDecoration: 'none' }} className="text-white" href={"/work-stress-assessment/" + props.email}>| WS assessment &nbsp;&nbsp;</a></li> }
+                    <li><a style={{ textDecoration: 'none' }} className="text-white" href={"/productivity-report/" + props.email}>| Productivity report &nbsp;&nbsp;</a></li>
                     <li><a style={{ textDecoration: 'none' }} className="text-white" href="/">| Sign out</a></li>
                 </ul>
             </div>

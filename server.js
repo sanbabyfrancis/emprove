@@ -104,6 +104,18 @@ app.get("/admin-to-user/:id", (req, res) => {
     });
 });
 
+app.get("/productivity-report/:id", (req, res) => {
+    let email = req.params.id;
+    authID = email;
+    User.findOne({ email: authID }, (err, userDetails) => {
+        Task.find({ assignedTo: authID }, (err, taskDetails) => {
+            if (userDetails && taskDetails) {
+                res.render("productivity-report", { userDetails: userDetails, taskDetails: taskDetails })
+            }
+        });
+    });
+});
+
 app.get("/api/tasks", (req, res) => {
     Task.find({ assignedTo: authID }, (err, userTasks) => {
         if (userTasks) {
@@ -147,6 +159,31 @@ app.post("/update-task", async (req, res) => {
 app.delete("/task/:id", async (req, res) => {
     await Task.findByIdAndDelete(req.params.id)
     res.send("Deleted successfully");
+});
+
+
+app.get("/work-stress-assessment/:id", (req, res) => { 
+    let email = req.params.id;
+    res.render("work-stress-assessment", { email: email });
+});
+
+app.post("/work-stress-assessment", (req, res) => {
+    let email = req.body.email
+    let result = 0
+    Object.keys(req.body).forEach(key => {
+        if (key != "email") {
+            result = result + parseInt(req.body[key]);
+        }
+    });
+    User.findOneAndUpdate({email: email}, {workStressScore: result}, null, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+    
+    // Redirect to user dashboard
+    authID = email;
+    res.render("user-dashboard", { userComponentRender: true });
 });
 
 app.listen(3000, () => {

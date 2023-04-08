@@ -46,7 +46,7 @@ function App() {
 
     return (
         <div>
-            <HeaderBar email={users.email} />
+            <HeaderBar email={users.email} userComponentRender={userComponentRender}/>
             <div className="container">
                 <div className="task-grid">
                     <CreateNewForm setTasks={setTasks} />
@@ -57,7 +57,7 @@ function App() {
                     {toggleDetection ? <FacialLandmarks /> : ""}
                 </div>
             </div>
-            {userComponentRender && <ReactJkMusicPlayer audioLists={audioList} extendsContent={<button className="btn btn-primary" onClick={toggleFaceDetection}>Toggle Detection</button>} theme="dark" mode="full" autoPlay={false} toggleMode={false} responsive={false} showThemeSwitch={false} showDownload={false} showPlayMode={false} showReload={false} />}
+            {userComponentRender && <ReactJkMusicPlayer audioLists={audioList} extendsContent={<button className="btn btn-primary" onClick={toggleFaceDetection}>ON | OFF Detection</button>} theme="dark" mode="full" autoPlay={false} toggleMode={false} responsive={false} showThemeSwitch={false} showDownload={false} showPlayMode={false} showReload={false} />}
         </div>
     );
 }

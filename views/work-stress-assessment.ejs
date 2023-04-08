@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WS assessment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@600&display=swap');
+
+        body {
+            font-family: Karla, sans-serif;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+        <div class="container">
+            <h1>
+                <a style="text-decoration: none;" class="text-white" href="/">EMPROVE</a>
+            </h1>
+            <ul class="nav-links" style="display: flex; list-style-type: none;">
+                <li>
+                    <p class="text-white" style="text-align: right">
+                        <%= email %> &nbsp;&nbsp;
+                    </p>
+                </li>
+                <li><a style="text-decoration: none;" class="text-white" href="/">| Sign out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Work Stress Assessment</h2>
+        <h5>All rights reserved, American Institute of Stress</h5>
+        <br>
+        <p style="color: green;">Directions: Thinking about your current job, how often does each of the following
+            statements describe how you feel?</p>
+        <br>
+        <form id="myForm" action="/work-stress-assessment" method="post">
+            <div class="form-group">
+                <label for="questionA">A. Conditions at work are unpleasant or sometimes even unsafe.</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" id="a1" name="questionA" value="1" required>
+                        <label for="a1">Never</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="a2" name="questionA" value="2">
+                        <label for="a2">Rarely</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="a3" name="questionA" value="3">
+                        <label for="a3">Sometimes</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="a4" name="questionA" value="4">
+                        <label for="a4">Often</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="a5" name="questionA" value="5">
+                        <label for="a5">Very Often</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="questionB">B. I feel that my job is negatively affecting my physical or emotional well
+                    being.</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" id="b1" name="questionB" value="1" required>
+                        <label for="b1">Never</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="b2" name="questionB" value="2">
+                        <label for="b2">Rarely</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="b3" name="questionB" value="3">
+                        <label for="b3">Sometimes</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="b4" name="questionB" value="4">
+                        <label for="b4">Often</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="b5" name="questionB" value="5">
+                        <label for="b5">Very Often</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="questionC">C. I have too much work to do and/or too many unreasonable deadlines.</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" id="c1" name="questionC" value="1" required>
+                        <label for="c1">Never</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="c2" name="questionC" value="2">
+                        <label for="c2">Rarely</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="c3" name="questionC" value="3">
+                        <label for="c3">Sometimes</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="c4" name="questionC" value="4">
+                        <label for="c4">Often</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="c5" name="questionC" value="5">
+                        <label for="c5">Very Often</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="questionD">D. I find it difficult to express my opinions or feelings about my job
+                    conditions to my superiors.</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" id="d1" name="questionD" value="1" required>
+                        <label for="d1">Never</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="d2" name="questionD" value="2">
+                        <label for="d2">Rarely</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="d3" name="questionD" value="3">
+                        <label for="d3">Sometimes</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="d4" name="questionD" value="4">
+                        <label for="d4">Often</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="d5" name="questionD" value="5">
+                        <label for="d5">Very Often</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="questionE">E. I feel that job pressures interfere with my family or personal
+                    life.</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" id="e1" name="questionE" value="1" required>
+                        <label for="e1">Never</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="e2" name="questionE" value="2">
+                        <label for="e2">Rarely</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="e3" name="questionE" value="3">
+                        <label for="e3">Sometimes</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="e4" name="questionE" value="4">
+                        <label for="e4">Often</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="e5" name="questionE" value="5">
+                        <label for="e5">Very Often</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="questionF">F. I have adequate control or input over my work duties.</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" id="f1" name="questionF" value="5" required>
+                        <label for="f1">Never</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="f2" name="questionF" value="4">
+                        <label for="f2">Rarely</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="f3" name="questionF" value="3">
+                        <label for="f3">Sometimes</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="f4" name="questionF" value="2">
+                        <label for="f4">Often</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="f5" name="questionF" value="1">
+                        <label for="f5">Very Often</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="questionG">G. I receive appropriate recognition or rewards for good performance.</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" id="g1" name="questionG" value="5" required>
+                        <label for="g1">Never</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="g2" name="questionG" value="4">
+                        <label for="g2">Rarely</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="g3" name="questionG" value="3">
+                        <label for="g3">Sometimes</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="g4" name="questionG" value="2">
+                        <label for="g4">Often</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="g5" name="questionG" value="1">
+                        <label for="g5">Very Often</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="questionH">H. I am able to utilize my skills and talents to the fullest extent at
+                    work.</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" id="h1" name="questionH" value="5" required>
+                        <label for="h1">Never</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="h2" name="questionH" value="4">
+                        <label for="h2">Rarely</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="h3" name="questionH" value="3">
+                        <label for="h3">Sometimes</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="h4" name="questionH" value="2">
+                        <label for="h4">Often</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="h5" name="questionH" value="1">
+                        <label for="h5">Very Often</label>
+                    </div>
+                </div>
+            </div>
+            <input type="email" name="email" value="<%= email %>" hidden>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <br>
+    </div>
+</body>
+
+</html>
