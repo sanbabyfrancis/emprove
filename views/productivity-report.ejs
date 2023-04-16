@@ -39,13 +39,16 @@
     </nav>
 
     <div class="container">
+        <br>
         <h1>Productivity Report</h1>
+        <h5><%= new Date();%></h5>
+        <br>
         <div class="row">
             <div class="col-md-6">
                 <h2>User Details</h2>
-                <p>Name: <%= userDetails.name %>
+                <p>Name: <span style="color: brown;"><%= userDetails.name %> </span>
                 </p>
-                <p>Email: <%= userDetails.email %>
+                <p>Email ID: <span style="color: brown;"><%= userDetails.email %></span>
                 </p>
                 <!-- <p>Pomodoro Count: <%= userDetails.pomodoroCount %>
                 </p>
@@ -53,7 +56,7 @@
                 </p> -->
             </div>
             <div class="col-md-6">
-                <h2>Task Details</h2>
+                <h2>Pending Tasks</h2>
                 <table class="table">
                     <thead>
                         <tr>

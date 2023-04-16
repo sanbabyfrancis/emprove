@@ -50,11 +50,11 @@ function App() {
             <div className="container">
                 <div className="task-grid">
                     <CreateNewForm setTasks={setTasks} />
-                    {userComponentRender && <PomodoroTimer />}
+                    {userComponentRender && <PomodoroTimer email={users.email}/>}
                     {tasks.map(function (task) {
                         return <TaskCard key={task._id} name={task.name} description={task.description} deadline={task.deadline} id={task._id} setTasks={setTasks} />
                     })}
-                    {toggleDetection ? <FacialLandmarks /> : ""}
+                    {toggleDetection ? <FacialLandmarks email={users.email}/> : ""}
                 </div>
             </div>
             {userComponentRender && <ReactJkMusicPlayer audioLists={audioList} extendsContent={<button className="btn btn-primary" onClick={toggleFaceDetection}>ON | OFF Detection</button>} theme="dark" mode="full" autoPlay={false} toggleMode={false} responsive={false} showThemeSwitch={false} showDownload={false} showPlayMode={false} showReload={false} />}

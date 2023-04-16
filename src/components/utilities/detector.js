@@ -1,5 +1,6 @@
 import * as faceLandmarksDetection from "@tensorflow-models/face-landmarks-detection";
 import { drawMesh } from "./drawMesh";
+import axios from "axios";
 
 function euclidianDistance(x1, y1, x2, y2) {
   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
@@ -30,6 +31,7 @@ export const runDetector = async (video, canvas) => {
     model,
     detectorConfig
   );
+  var updateCount;
   const detect = async (net) => {
     const estimationConfig = { flipHorizontal: false };
     const faces = await net.estimateFaces(video, estimationConfig);
@@ -40,6 +42,13 @@ export const runDetector = async (video, canvas) => {
       if (MAR > 6000) {
         var audio = new Audio("notification.wav");
         audio.play();
+        updateCount = true;
+      }
+      else {
+        if (updateCount == true) {
+          axios.post("/drowsiness-count", "updateCount");
+          updateCount = false;
+        }
       }
     }
     catch (e) {

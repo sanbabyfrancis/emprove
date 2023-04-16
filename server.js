@@ -162,7 +162,7 @@ app.delete("/task/:id", async (req, res) => {
 });
 
 
-app.get("/work-stress-assessment/:id", (req, res) => { 
+app.get("/work-stress-assessment/:id", (req, res) => {
     let email = req.params.id;
     res.render("work-stress-assessment", { email: email });
 });
@@ -175,15 +175,34 @@ app.post("/work-stress-assessment", (req, res) => {
             result = result + parseInt(req.body[key]);
         }
     });
-    User.findOneAndUpdate({email: email}, {workStressScore: result}, null, (err) => {
+    User.findOneAndUpdate({ email: email }, { workStressScore: result }, null, (err) => {
         if (err) {
             console.log(err)
         }
     });
-    
+
     // Redirect to user dashboard
     authID = email;
     res.render("user-dashboard", { userComponentRender: true });
+});
+
+app.post("/pomodoro-count", (req, res) => {
+    let email = req.body.email
+    User.findOneAndUpdate({ email: email }, { $inc: { pomodoroCount: 1 } }, null, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+    res.send("Updated successfully")
+});
+
+app.post("/drowsiness-count", (req, res) => {
+    User.findOneAndUpdate({ email: authID }, {$inc: { drowsinessCount: 1 }}, null, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+    res.send("Updated successfully")
 });
 
 app.listen(3000, () => {

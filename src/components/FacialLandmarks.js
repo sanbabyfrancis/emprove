@@ -15,7 +15,7 @@ const videoConstraints = {
     height: inputResolution.height,
     facingMode: "user",
 };
-function FacialLandmarks () {
+function FacialLandmarks(props) {
     const canvasRef = useRef(null);
     const [loaded, setLoaded] = useState(false);
 

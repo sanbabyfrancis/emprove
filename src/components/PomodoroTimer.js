@@ -1,4 +1,5 @@
 import React from "react"
+import Axios from "axios"
 
 function displayFormat(sec) {
     var m = Math.floor(sec / 60)
@@ -9,7 +10,9 @@ function displayFormat(sec) {
 class Timer extends React.Component {
     render() {
         if (this.props.timeLeft == 0) {
+            // bug
             document.getElementById('end-of-time').play()
+            Axios.post("/pomodoro-count", {email: this.props.email})
         }
         if (this.props.timeLeft == null || this.props.timeLeft == 0)
             return <div />
@@ -37,6 +40,7 @@ class PomodoroTimer extends React.Component {
         this.state = { timeLeft: null, timer: null }
         this.startTimer = this.startTimer.bind(this)
     }
+    
     startTimer(timeLeft) {
         clearInterval(this.state.timer)
         let timer = setInterval(() => {
@@ -44,19 +48,19 @@ class PomodoroTimer extends React.Component {
             if (timeLeft == 0) clearInterval(timer)
             this.setState({ timeLeft: timeLeft })
         }, 1000)
-        return this.setState({ timeLeft: timeLeft, timer: timer })
+        return this.setState({ timeLeft: timeLeft, timer: timer }) // 300
     }
     render() {
         return (
             <div className="card">
                 <div className="card-body">
                     <h4>Pomodoro Timer</h4>
-                    <div className="btn-group" role="group">
+                    <div className="btn-group" role="group"> 
                         <Button time="1500" label="Pomodoro Session" startTimer={this.startTimer} />
-                        <Button time="300" label="Short Break" startTimer={this.startTimer} />
+                        <Button time="5" label="Short Break" startTimer={this.startTimer} />
                         <Button time="900" label="Long Break" startTimer={this.startTimer} />
                     </div>
-                    <Timer timeLeft={this.state.timeLeft} />
+                    <Timer timeLeft={this.state.timeLeft} email={this.props.email}/>
                     <audio id="end-of-time" src="notification.wav" preload="auto"></audio>
                 </div>
             </div>
