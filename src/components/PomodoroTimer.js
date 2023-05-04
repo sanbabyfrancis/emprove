@@ -57,7 +57,7 @@ class PomodoroTimer extends React.Component {
                     <h4>Pomodoro Timer</h4>
                     <div className="btn-group" role="group"> 
                         <Button time="1500" label="Pomodoro Session" startTimer={this.startTimer} />
-                        <Button time="5" label="Short Break" startTimer={this.startTimer} />
+                        <Button time="300" label="Short Break" startTimer={this.startTimer} />
                         <Button time="900" label="Long Break" startTimer={this.startTimer} />
                     </div>
                     <Timer timeLeft={this.state.timeLeft} email={this.props.email}/>

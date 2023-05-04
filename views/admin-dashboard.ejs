@@ -38,9 +38,12 @@
         </div>
     </nav>
     <main class="container py-5">
-        <h2 class="text-center mb-4">Welcome to your Manager Dashboard</h1>
+        <img src="/images/manager-dashboard.svg" width="400px" style="display: block; margin: auto auto;">
+        <br>
+        <h2 class="text-center mb-4">Welcome to your Manager Dashboard</h2>
+        <h4 class="text-center mb-4">Employees assigned to you</h4>
             <% if(details!=null) { %>
-                <table align="center">
+                <table align="center" cellpadding="2px">
                     <% details.users.forEach(function(item){ %>
                         <tr>
                             <td>

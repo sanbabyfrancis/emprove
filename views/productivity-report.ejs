@@ -8,6 +8,9 @@
     <title>Productivity report</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Karla:wght@600&display=swap');
 
@@ -17,6 +20,15 @@
 
         .tagline {
             font-size: 1.2em;
+        }
+
+        .btn-circle.btn-xl {
+            width: 70px;
+            height: 70px;
+            padding: 10px 16px;
+            border-radius: 35px;
+            font-size: 12px;
+            text-align: center;
         }
     </style>
 </head>
@@ -41,50 +53,173 @@
     <div class="container">
         <br>
         <h1>Productivity Report</h1>
-        <h5><%= new Date();%></h5>
+        <h5>
+            <%= new Date();%>
+        </h5>
+        <br>
+        <img src="/images/report.svg" width="450px" style="display: block; margin: auto auto;">
         <br>
         <div class="row">
             <div class="col-md-6">
-                <h2>User Details</h2>
-                <p>Name: <span style="color: brown;"><%= userDetails.name %> </span>
-                </p>
-                <p>Email ID: <span style="color: brown;"><%= userDetails.email %></span>
-                </p>
-                <!-- <p>Pomodoro Count: <%= userDetails.pomodoroCount %>
-                </p>
-                <p>Drowsiness Score: <%= userDetails.drowsinessScore %>
-                </p> -->
-            </div>
-            <div class="col-md-6">
-                <h2>Pending Tasks</h2>
-                <table class="table">
-                    <thead>
+                <h3>Employee Details</h2>
+                    <br>
+                    <table border="2px" cellpadding="5px">
                         <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Deadline</th>
+                            <td rowspan="4"><i class="fa fa-user-circle fa-4x"></i></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <% taskDetails.forEach(function(task) { %>
+                        <tr>
+                            <td>
+                                <p>Name: <span style="color: brown;">
+                                        <%= userDetails.name %>
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Email ID: <span style="color: brown;">
+                                        <%= userDetails.email %>
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Number of assigned tasks: <span style="color: brown;">
+                                        <%= taskDetails.length %>
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+            <!-- <div class="col-md-6">
+                <h3>Assigned Tasks</h2>
+                    <br>
+                    <table border="2px" cellpadding="10px">
+                        <thead style="color: brown;">
                             <tr>
-                                <td>
-                                    <%= task.name %>
-                                </td>
-                                <td>
-                                    <%= task.description %>
-                                </td>
-                                <td>
-                                    <%= task.deadline %>
-                                </td>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Deadline</th>
                             </tr>
-                            <% }); %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <% taskDetails.forEach(function(task) { %>
+                                <tr>
+                                    <td>
+                                        <%= task.name %>
+                                    </td>
+                                    <td>
+                                        <%= task.description %>
+                                    </td>
+                                    <td>
+                                        <%= task.deadline %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+            </div> -->
+        </div>
+        <br>
+        <hr>
+        <h3>Productivity Metrics</h3>
+        <br>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body" style="text-align: center;">
+                        <button type="button" class="btn btn-success btn-circle btn-xl">
+                            <h3>
+                                <%= userDetails.pomodoroCount %>
+                            </h3>
+                        </button>
+                        <h3 class="card-title">Pomodoro Count</h3>
+                        <p class="card-text">Use the Pomodoro Technique to break your work into 25-minute blocks,
+                            separated by short breaks.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body" style="text-align: center;">
+                        <button type="button" class="btn btn-danger btn-circle btn-xl">
+                            <h3>
+                                <%= userDetails.drowsinessCount %>
+                            </h3>
+                        </button>
+                        <h3 class="card-title">Drowsiness Count</h3>
+                        <p class="card-text">Use the Pomodoro Technique to break your work into 25-minute blocks,
+                            separated by short breaks.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body" style="text-align: center;">
+                        <button type="button" class="btn btn-primary btn-circle btn-xl">
+                            <h3>
+                                <%= userDetails.workStressScore %>
+                            </h3>
+                        </button>
+                        <h3 class="card-title">Work Stress Score</h3>
+                        <p class="card-text">Use the Pomodoro Technique to break your work into 25-minute blocks,
+                            separated by short breaks.</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <button class="btn btn-secondary" onclick="saveAndReset()">Save and Reset</button>
+        </div>
+        <br>
+        <hr>
+        <h3>Productivity Timeline (Snapshots)</h3>
+        <br>
+        <canvas id="mulipleLineChart"></canvas>
+        <br>
     </div>
 
+
+    <script type="text/javascript">
+        var ctx = document.getElementById('mulipleLineChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: <%- JSON.stringify(userDetails.timestampArray) %>,
+                datasets: [
+                    {
+                        label: 'Pomodoro Count',
+                        data: <%- JSON.stringify(userDetails.pomodoroCountArray) %>,
+                        borderColor: 'green'
+                    },
+                    {
+                        label: 'Drowsiness Score',
+                        data: <%- JSON.stringify(userDetails.drowsinessCountArray) %>,
+                        borderColor: 'red'
+                    },
+                    {
+                        label: 'Work Stress Score',
+                        data: <%- JSON.stringify(userDetails.workStressScoreArray) %>,
+                        borderColor: 'blue'
+                    }
+                ]
+            }
+        });
+
+        function saveAndReset() {
+            axios.post("/update-chart-arrays", {
+                email: "<%= userDetails.email %>",
+                pomodoroCount: <%= userDetails.pomodoroCount %>,
+                drowsinessCount: <%= userDetails.drowsinessCount %>,
+                workStressScore: <%= userDetails.workStressScore %>,
+                timestamp: new Date().toUTCString()
+            });
+            history.go(0)
+        }
+
+    </script>
 </body>
 
 </html>

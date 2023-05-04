@@ -197,7 +197,29 @@ app.post("/pomodoro-count", (req, res) => {
 });
 
 app.post("/drowsiness-count", (req, res) => {
-    User.findOneAndUpdate({ email: authID }, {$inc: { drowsinessCount: 1 }}, null, (err) => {
+    User.findOneAndUpdate({ email: authID }, { $inc: { drowsinessCount: 1 } }, null, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+    res.send("Updated successfully")
+});
+
+app.post("/update-chart-arrays", (req, res) => {
+    var email = req.body.email
+    var newPomodoroCount = req.body.pomodoroCount
+    var newDrowsinessCount = req.body.drowsinessCount
+    var newWorkSressScore = req.body.workStressScore
+    var newTimestamp = req.body.timestamp
+    User.findOneAndUpdate({ email: email }, {
+        $push:
+        {
+            pomodoroCountArray: newPomodoroCount,
+            drowsinessCountArray: newDrowsinessCount,
+            workStressScoreArray: newWorkSressScore,
+            timestampArray: newTimestamp
+        }
+    }, null, (err) => {
         if (err) {
             console.log(err)
         }
