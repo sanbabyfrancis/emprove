@@ -136,8 +136,7 @@
                             </h3>
                         </button>
                         <h3 class="card-title">Pomodoro Count</h3>
-                        <p class="card-text">Use the Pomodoro Technique to break your work into 25-minute blocks,
-                            separated by short breaks.</p>
+                        <p class="card-text">Pomodoro Count shows the number of your successful Pomodoro sessions.</p>
                     </div>
                 </div>
             </div>
@@ -150,8 +149,7 @@
                             </h3>
                         </button>
                         <h3 class="card-title">Drowsiness Count</h3>
-                        <p class="card-text">Use the Pomodoro Technique to break your work into 25-minute blocks,
-                            separated by short breaks.</p>
+                        <p class="card-text">Drowsiness Count shows the number of times our system detected drowsiness.</p>
                     </div>
                 </div>
             </div>
@@ -164,20 +162,54 @@
                             </h3>
                         </button>
                         <h3 class="card-title">Work Stress Score</h3>
-                        <p class="card-text">Use the Pomodoro Technique to break your work into 25-minute blocks,
-                            separated by short breaks.</p>
+                        <p class="card-text">Work Stress Score is an indicator of your workplace stress.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div style="display: flex; justify-content: center; align-items: center;">
-            <button class="btn btn-secondary" onclick="saveAndReset()">Save and Reset</button>
-        </div>
+            <button class="btn btn-secondary" style="margin-right: 30px" onclick="snapshot()">Take a Snapshot</button>
+            <button class="btn btn-secondary" onclick="snapshotAndReset()">Snapshot and Reset</button>        </div>
         <br>
         <hr>
         <h3>Productivity Timeline (Snapshots)</h3>
         <br>
         <canvas id="mulipleLineChart"></canvas>
+        <br>
+        <hr>
+        <div>
+            <h3>Interpreting Work Stress Score</h3>
+            <br>
+            <table border="2px" align="center" cellpadding="8px">
+                <tr style="color: darkgreen;">
+                    <td style="width: 15%;">08 to 15</td>
+                    <td>Chilled out and relatively calm. Stress isn’t much of an issue.</td>
+                </tr>
+                <tr style="color: darkgreen;">
+                    <td>16 to 20</td>
+                    <td>Fairly low. Coping should be a breeze, but you probably have a tough day now
+                        and then. Still, count your blessings.</td>
+                </tr>
+                <tr style="color: darkgreen;">
+                    <td>21 to 25</td>
+                    <td>Moderate stress. Some things about your job are likely to be pretty stressful,
+                        but probably not much more than most people experience and are able to cope with. Concentrate on seeing
+                        what can be done to reduce items with the worst scores.</td>
+                </tr>
+                <tr style="color: darkred;">
+                    <td>26 to 30</td>
+                    <td>Severe. You may still be able to cope, but life at work can sometimes be
+                        miserable. Several of your scores are probably extreme. You could be in the wrong job, or even in the
+                        right job but at the wrong time, and might benefit from counseling.</td>
+                </tr>
+                <tr style="color: darkred;">
+                    <td>31 to 40</td>
+                    <td>Stress level is potentially dangerous – the more so the higher your score. You
+                        should seek professional assistance, especially if you feel your health is affected, or you might need
+                        to consider a job change.</td>
+                </tr>
+            </table>
+        </div>
         <br>
     </div>
 
@@ -208,8 +240,19 @@
             }
         });
 
-        function saveAndReset() {
+        function snapshot() {
             axios.post("/update-chart-arrays", {
+                email: "<%= userDetails.email %>",
+                pomodoroCount: <%= userDetails.pomodoroCount %>,
+                drowsinessCount: <%= userDetails.drowsinessCount %>,
+                workStressScore: <%= userDetails.workStressScore %>,
+                timestamp: new Date().toUTCString()
+            });
+            history.go(0)
+        }
+
+        function snapshotAndReset() {
+            axios.post("/update-chart-arrays-and-reset", {
                 email: "<%= userDetails.email %>",
                 pomodoroCount: <%= userDetails.pomodoroCount %>,
                 drowsinessCount: <%= userDetails.drowsinessCount %>,

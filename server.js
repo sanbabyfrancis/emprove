@@ -227,6 +227,40 @@ app.post("/update-chart-arrays", (req, res) => {
     res.send("Updated successfully")
 });
 
+app.post("/update-chart-arrays-and-reset", (req, res) => {
+    var email = req.body.email
+    var newPomodoroCount = req.body.pomodoroCount
+    var newDrowsinessCount = req.body.drowsinessCount
+    var newWorkSressScore = req.body.workStressScore
+    var newTimestamp = req.body.timestamp
+    User.findOneAndUpdate({ email: email }, {
+        $push:
+        {
+            pomodoroCountArray: newPomodoroCount,
+            drowsinessCountArray: newDrowsinessCount,
+            workStressScoreArray: newWorkSressScore,
+            timestampArray: newTimestamp
+        }
+    }, null, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+    User.findOneAndUpdate({ email: email }, {
+        $set:
+        {
+            pomodoroCount: 0,
+            drowsinessCount: 0,
+            workStressScore: 0
+        }
+    }, null, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+    res.send("Updated and reset successfully")
+});
+
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
 });
