@@ -37,9 +37,14 @@ export const runDetector = async (video, canvas) => {
     const faces = await net.estimateFaces(video, estimationConfig);
     // console.log(faces)
     try {
+      // console.log(mouthAspectRatio(faces[0].keypoints[61], faces[0].keypoints[37], faces[0].keypoints[267], faces[0].keypoints[291], faces[0].keypoints[314], faces[0].keypoints[84]))
       // console.log(eyeAspectRatio(faces[0].keypoints[33], faces[0].keypoints[160], faces[0].keypoints[158], faces[0].keypoints[133], faces[0].keypoints[153], faces[0].keypoints[144]))
+      // console.log(eyeAspectRatio(faces[0].keypoints[362], faces[0].keypoints[385], faces[0].keypoints[387], faces[0].keypoints[263], faces[0].keypoints[373], faces[0].keypoints[380]))
+     
       var MAR = mouthAspectRatio(faces[0].keypoints[61], faces[0].keypoints[37], faces[0].keypoints[267], faces[0].keypoints[291], faces[0].keypoints[314], faces[0].keypoints[84])
-      if (MAR > 6000) {
+      var L_EAR = eyeAspectRatio(faces[0].keypoints[33], faces[0].keypoints[160], faces[0].keypoints[158], faces[0].keypoints[133], faces[0].keypoints[153], faces[0].keypoints[144])
+      var R_EAR = eyeAspectRatio(faces[0].keypoints[362], faces[0].keypoints[385], faces[0].keypoints[387], faces[0].keypoints[263], faces[0].keypoints[373], faces[0].keypoints[380])
+      if (MAR > 6000 || (L_EAR < 250 && R_EAR < 250)) {
         var audio = new Audio("notification.wav");
         audio.play();
         updateCount = true;
