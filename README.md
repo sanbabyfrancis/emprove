@@ -1,8 +1,8 @@
-# EMPROVE - An Employee Productivity System (using ML)
+# EMPROVE - An Employee Productivity System using ML
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
-**EMPROVE** is a comprehensive web-based productivity system designed to enhance productivity, task management and overall work efficiency of employees at their workplace. The system provides a range of features and tools that assist employees in organizing their workload, managing time effectively and maximizing productivity. It aims to create a positive work environment that promotes focus, reduces stress and improves job satisfaction.
+EMPROVE is a comprehensive web-based productivity system designed to enhance productivity, task management and overall work efficiency of employees at their workplace. The system provides a range of features and tools that assist employees in organizing their workload, managing time effectively and maximizing productivity. It aims to create a positive work environment that promotes focus, reduces stress and improves job satisfaction.
 
 ![Employee Dashboard](employee-dashboard.png)
 
