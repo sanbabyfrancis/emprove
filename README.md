@@ -12,33 +12,17 @@
 5. **Work Stress Assessment**: Evaluate stress levels and identify stress patterns to enable effective stress management and increased resilience.
 6. **Productivity Reports**: Detailed reports that offer insights into performance, time management and areas for improvement.
 
-## Dependencies
-- **@babel/core**: ^7.20.12
-- **@babel/preset-react**: ^7.18.6
+## Core Dependencies
+
 - **@mediapipe/face_mesh**: ^0.4.1633559619
 - **@tensorflow-models/face-landmarks-detection**: ^1.0.2
 - **@tensorflow/tfjs**: ^4.2.0
-- **@tensorflow/tfjs-backend-webgl**: ^4.2.0
-- **axios**: ^1.3.3
-- **babel-loader**: ^9.1.2
-- **body-parser**: ^1.20.1
-- **cors**: ^2.8.5
-- **css-loader**: ^6.7.3
 - **ejs**: ^3.1.8
 - **express**: ^4.18.2
-- **md5**: ^2.3.0
 - **mongodb**: ^5.0.1
 - **mongoose**: ^6.9.1
-- **nodemon** : ^2.0.20
-- **npm-run-all**: ^4.1.5
 - **react**: ^18.2.0
-- **react-dom**: ^18.2.0
 - **react-jinke-music-player**: ^4.24.2
-- **react-webcam**: ^7.0.1
-- **style-loader**: ^3.3.1
-- **webpack**: ^5.75.0
-- **webpack-cli**: ^5.0.1
-- **webpack-node-externals**: ^3.0.0
 
 ## Installation
 To install and run EMPROVE locally, follow these steps:
