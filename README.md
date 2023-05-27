@@ -12,17 +12,15 @@
 5. **Work Stress Assessment**: Evaluate stress levels and identify stress patterns to enable effective stress management and increased resilience.
 6. **Productivity Reports**: Detailed reports that offer insights into performance, time management and areas for improvement.
 
-## Core Dependencies
+## Technologies Used
 
-- **@mediapipe/face_mesh**: ^0.4.1633559619
-- **@tensorflow-models/face-landmarks-detection**: ^1.0.2
-- **@tensorflow/tfjs**: ^4.2.0
-- **ejs**: ^3.1.8
-- **express**: ^4.18.2
-- **mongodb**: ^5.0.1
-- **mongoose**: ^6.9.1
-- **react**: ^18.2.0
-- **react-jinke-music-player**: ^4.24.2
+- **Node.js** (version 18.7.0)
+- **Express.js** (version 4.18.2)
+- **MongoDB** (version 5.0.1)
+- **React.js** (version 18.2.0)
+- **Embedded JavaScript** (version 3.1.8)
+- **Bootstrap** (version 4.5.0)
+- **MediaPipe Face Mesh** (version 0.4.16)
 
 ## Installation
 To install and run EMPROVE locally, follow these steps:
