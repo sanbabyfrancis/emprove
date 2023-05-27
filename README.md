@@ -1,16 +1,14 @@
-# EMPROVE - An Employee Productivity System using ML
+# EMPROVE - An Employee Productivity System
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
-EMPROVE is a comprehensive web-based productivity system designed to enhance productivity, task management and overall work efficiency of employees at their workplace. The system provides a range of features and tools that assist employees in organizing their workload, managing time effectively and maximizing productivity. It aims to create a positive work environment that promotes focus, reduces stress and improves job satisfaction.
-
-![Employee Dashboard](employee-dashboard.png)
+## _An employee productivity system (that uses machine learning) to help you stay focused and get your work done_ ✔️
 
 ## Features
 1. **Task Management**: Organize tasks into manageable units, set priorities and track progress.
 2. **Pomodoro Timer**: Implement the Pomodoro technique, a time-management method that utilizes focused work intervals followed by short breaks.
 3. **Concentration Music**: Select from a collection of soothing instrumental tracks to enhance focus and create an optimal work environment.
-4. **Drowsiness Detection**: Real-time monitoring of facial features to detect signs of drowsiness and provide alerts for improved alertness and focus.
+4. **Drowsiness Detection**: Real-time monitoring of facial features to detect signs of drowsiness and provide alerts for improved attention and focus.
 5. **Work Stress Assessment**: Evaluate stress levels and identify stress patterns to enable effective stress management and increased resilience.
 6. **Productivity Reports**: Detailed reports that offer insights into performance, time management and areas for improvement.
 
@@ -71,7 +69,7 @@ To install and run EMPROVE locally, follow these steps:
    ```
 
 ## Usage
-1. Sign up for an account with EMPROVE using your email address.
+1. Sign up for an account using your email address.
 2. Log in to your account and explore the various features available.
 3. Set up your tasks and organize them based on priority and deadlines.
 4. Utilize the Pomodoro timer to work in focused intervals and take regular breaks.
@@ -79,14 +77,3 @@ To install and run EMPROVE locally, follow these steps:
 6. Benefit from drowsiness detection to maintain alertness during working hours.
 7. Assess your work stress levels and take necessary steps for effective stress management.
 8. Review productivity reports to gain insights into your performance, time management and areas for improvement.
-
-## Contact
-
-**San Baby Francis** <br>
-san.baby.francis123@gmail.com
-
-[![LinkedIn][linkedin-shield]][linkedin-url]
-[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/sanbabyfrancis.svg?style=social&label=Follow%20%40sanbabyfrancis)](https://twitter.com/sanbabyfrancis)
-
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/sanbabyfrancis
