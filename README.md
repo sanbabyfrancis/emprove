@@ -59,3 +59,7 @@ To install and run EMPROVE locally, follow these steps:
 6. Benefit from drowsiness detection to maintain alertness during working hours.
 7. Assess your work stress levels and take necessary steps for effective stress management.
 8. Review productivity reports to gain insights into your performance, time management and areas for improvement.
+
+## Demo
+
+[ezgif-1-5c92951f57.webm](https://github.com/adithyak-47/emprove/assets/76245460/f640aeab-2673-47a7-9511-3ed04bb61606)
