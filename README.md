@@ -12,8 +12,10 @@
 5. **Work Stress Assessment**: Evaluate stress levels and identify stress patterns to enable effective stress management and increased resilience.
 6. **Productivity Reports**: Detailed reports that offer insights into performance, time management and areas for improvement.
 
-## Technologies Used
+## Screencast (Demo)
+[emprove-demo](https://github.com/adithyak-47/emprove/assets/76245460/f640aeab-2673-47a7-9511-3ed04bb61606)
 
+## Technologies Used
 - **Node.js** (version 18.7.0)
 - **Express.js** (version 4.18.2)
 - **MongoDB** (version 5.0.1)
@@ -59,7 +61,3 @@ To install and run EMPROVE locally, follow these steps:
 6. Benefit from drowsiness detection to maintain alertness during working hours.
 7. Assess your work stress levels and take necessary steps for effective stress management.
 8. Review productivity reports to gain insights into your performance, time management and areas for improvement.
-
-## Demo
-
-[ezgif-1-5c92951f57.webm](https://github.com/adithyak-47/emprove/assets/76245460/f640aeab-2673-47a7-9511-3ed04bb61606)
