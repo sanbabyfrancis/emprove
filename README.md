@@ -12,8 +12,10 @@
 5. **Work Stress Assessment**: Evaluate stress levels and identify stress patterns to enable effective stress management and increased resilience.
 6. **Productivity Reports**: Detailed reports that offer insights into performance, time management and areas for improvement.
 
-## Technologies Used
+## Screencast (Demo)
+[emprove-demo](https://github.com/adithyak-47/emprove/assets/76245460/f640aeab-2673-47a7-9511-3ed04bb61606)
 
+## Technologies Used
 - **Node.js** (version 18.7.0)
 - **Express.js** (version 4.18.2)
 - **MongoDB** (version 5.0.1)
