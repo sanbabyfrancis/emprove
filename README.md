@@ -1,7 +1,7 @@
 # EMPROVE - An Employee Productivity System
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
-
+                                                         
 ## _An employee productivity system (that uses machine learning) to help you stay focused and get your work done_ ✔️
 
 ## Features
@@ -12,9 +12,9 @@
 5. **Work Stress Assessment**: Evaluate stress levels and identify stress patterns to enable effective stress management and increased resilience.
 6. **Productivity Reports**: Detailed reports that offer insights into performance, time management and areas for improvement.
 
-## Screencast (Demo)
-[emprove-demo](https://github.com/adithyak-47/emprove/assets/76245460/f640aeab-2673-47a7-9511-3ed04bb61606)
-
+## Demo Screencast 
+[screencast.webm](https://github.com/sanbabyfrancis/emprove/assets/73488722/f5d98eb0-fe98-4d43-8973-0a3b69a619f0)
+                     
 ## Technologies Used
 - **Node.js** (version 18.7.0)
 - **Express.js** (version 4.18.2)
