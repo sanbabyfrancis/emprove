@@ -11,7 +11,7 @@
 4. **Drowsiness Detection**: Real-time monitoring of facial features to detect signs of drowsiness and provide alerts for improved attention and focus.
 5. **Work Stress Assessment**: Evaluate stress levels and identify stress patterns to enable effective stress management and increased resilience.
 6. **Productivity Reports**: Detailed reports that offer insights into performance, time management and areas for improvement.
-7. **Manager Dashboard**: Ability to assign tasks and monitor the productivity growth of employees.
+7. **Manager Dashboard**: Assign tasks and monitor the productivity growth of employees from a managerial perspective.
 
 ## Demo Screencast 
 [screencast.webm](https://github.com/sanbabyfrancis/emprove/assets/73488722/f5d98eb0-fe98-4d43-8973-0a3b69a619f0)
