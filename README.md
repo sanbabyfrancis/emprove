@@ -1,8 +1,8 @@
 # EMPROVE - An Employee Productivity System
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
-                                                         
-## _An employee productivity system (that uses machine learning) to help you stay focused and get your work done_ ✔️
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"> <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"> <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white">
+
+## _An employee productivity system that uses machine learning to help stay focused and organised_ ✔️
 
 ## Features
 1. **Task Management**: Organize tasks into manageable units, set priorities and track progress.
